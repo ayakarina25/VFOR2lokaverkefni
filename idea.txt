@@ -1,0 +1,22 @@
+Project Idea
+
+
+I am going to build a simple Online Course Platform.
+The website will display different courses with their name, description, and instructor.
+
+In the future, the platform can be expanded by adding user registration,
+login functionality, and a PostgreSQL database to store users and course enrollments.
+
+Data That Will Be Stored
+Course name
+
+Course description
+
+Instructor name
+
+Course image
+
+(Later) User information
+
+(Later) Course enrollments
+
