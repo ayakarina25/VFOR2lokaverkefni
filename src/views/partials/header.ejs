@@ -1,21 +1,25 @@
 <!DOCTYPE html>
-<html lang="is">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %> | CourseHub</title>
     <link rel="stylesheet" href="/css/styles.css">
 </head>
+
 <body>
+    <header class="main-header">
+        <div class="logo">
+            <h1>🎓 CourseHub</h1>
+        </div>
 
-<header>
-    <nav>
-        <a href="/">Home</a>
-        <a href="/courses">courses</a>
-        <a href="/about">about us</a>
-    </nav>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/courses">Courses</a></li>
+                <li><a href="/about">About</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <h1><%= title %></h1>
-</header>
-
-<main>
+    <main class="content-wrapper">

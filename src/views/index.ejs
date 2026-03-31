@@ -1,5 +1,33 @@
 <%- include('partials/header', { title: 'Home' }) %>
 
-<p>Welcome to our online course platform.</p>
+<section class="hero-section">
+    <div class="hero-content">
+        <h2>Welcome to CourseHub</h2>
+        <p>Explore courses and learn new skills easily.</p>
+        <a href="/courses" class="btn-primary">Browse Courses</a>
+    </div>
+</section>
+
+<section class="featured">
+    <h3>Popular Courses</h3>
+
+    <div class="card-grid">
+        <div class="course-card">
+            <div class="card-img"></div>
+            <div class="card-info">
+                <h4>Web Development</h4>
+                <p>Learn HTML, CSS, JS</p>
+            </div>
+        </div>
+
+        <div class="course-card">
+            <div class="card-img"></div>
+            <div class="card-info">
+                <h4>Node.js</h4>
+                <p>Backend basics</p>
+            </div>
+        </div>
+    </div>
+</section>
 
 <%- include('partials/footer') %>
