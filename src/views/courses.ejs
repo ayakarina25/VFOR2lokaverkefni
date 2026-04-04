@@ -1,17 +1,21 @@
-<%- include('partials/header', { title: 'Courses' }) %>
+<%- include('partials/header', { title: 'All Courses' }) %>
 
 <h2>All Courses</h2>
-
 <div class="card-grid">
-    <div class="course-card">
-        <h4>JavaScript</h4>
-        <p>Learn JS basics</p>
-    </div>
-
-    <div class="course-card">
-        <h4>Databases</h4>
-        <p>Learn PostgreSQL</p>
-    </div>
+    <% if (courses && courses.length) { %>
+        <% courses.forEach(course => { %>
+            <div class="course-card">
+                <h4><%= course.title %></h4>
+                <p><%= course.description %></p>
+                <p><strong>Instructor:</strong> <%= course.instructor %></p>
+                <p><strong>Duration:</strong> <%= course.time_hours %> hours</p>
+                <p><strong>Price:</strong> $<%= course.price %></p>
+                <a href="/courses/<%= course.id %>" class="btn-small">View Details</a>
+            </div>
+        <% }) %>
+    <% } else { %>
+        <p>No courses found in the database.</p>
+    <% } %>
 </div>
 
 <%- include('partials/footer') %>

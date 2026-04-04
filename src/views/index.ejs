@@ -10,23 +10,22 @@
 
 <section class="featured">
     <h3>Popular Courses</h3>
-
     <div class="card-grid">
-        <div class="course-card">
-            <div class="card-img"></div>
-            <div class="card-info">
-                <h4>Web Development</h4>
-                <p>Learn HTML, CSS, JS</p>
-            </div>
-        </div>
-
-        <div class="course-card">
-            <div class="card-img"></div>
-            <div class="card-info">
-                <h4>Node.js</h4>
-                <p>Backend basics</p>
-            </div>
-        </div>
+        <% if (popularCourses && popularCourses.length) { %>
+            <% popularCourses.forEach(course => { %>
+                <div class="course-card">
+                    <div class="card-info">
+                        <h4><%= course.title %></h4>
+                        <p><%= course.description.substring(0, 60) %>...</p>
+                        <p><strong>Instructor:</strong> <%= course.instructor %></p>
+                        <p><strong>$<%= course.price %></strong></p>
+                        <a href="/courses/<%= course.id %>" class="btn-small">View Course</a>
+                    </div>
+                </div>
+            <% }) %>
+        <% } else { %>
+            <p>No popular courses available at the moment.</p>
+        <% } %>
     </div>
 </section>
 
