@@ -1,20 +1,31 @@
 <%- include('partials/header', { title: 'All Courses' }) %>
 
 <h2>All Courses</h2>
+
 <div class="card-grid">
-    <% if (courses && courses.length) { %>
+    <% if (courses && courses.length > 0) { %>
         <% courses.forEach(course => { %>
             <div class="course-card">
-                <h4><%= course.title %></h4>
-                <p><%= course.description %></p>
-                <p><strong>Instructor:</strong> <%= course.instructor %></p>
-                <p><strong>Duration:</strong> <%= course.time_hours %> hours</p>
-                <p><strong>Price:</strong> $<%= course.price %></p>
-                <a href="/courses/<%= course.id %>" class="btn-small">View Details</a>
+                <div class="card-info">
+                    <h4><%= course.title %></h4>
+                    <p><%= course.description %></p>
+                    <p><strong>Instructor:</strong> <%= course.instructor %></p>
+                    <p><strong>Duration:</strong> <%= course.time_hours %> hours</p>
+                    <p><strong>Price:</strong> $<%= course.price %></p>
+                    <!-- NEW: View Details link -->
+                    <a href="/courses/<%= course.id %>" style="color: #3498db; font-weight: 600; text-decoration: none; display: inline-block; margin-top: 15px;">
+                        View Details →
+                    </a>
+                </div>
             </div>
         <% }) %>
     <% } else { %>
-        <p>No courses found in the database.</p>
+        <div class="course-card">
+            <div class="card-info">
+                <h4>No courses found</h4>
+                <p>Add courses to the database.</p>
+            </div>
+        </div>
     <% } %>
 </div>
 

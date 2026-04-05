@@ -1,47 +1,46 @@
-@import 'variables';
-
-body {
-  font-family: $main-font;
-  background-color: $background-color;
-  margin: 0;
-}
-
-// HEADER
-.main-header {
-  background-color: $primary-color;
-  color: $white;
-  padding: $padding-medium;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.main-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 15px;
-}
-
-.main-nav a {
-  color: $white;
-  text-decoration: none;
-}
-
-// HERO
-.hero-section {
-  padding: 40px;
-  text-align: center;
-}
-
-// CARDS
-.card-grid {
-  display: flex;
-  gap: 20px;
-  padding: 20px;
-}
-
-.course-card {
+// Detail page container
+.detail-container {
+  max-width: 800px;
+  margin: 0 auto;
   background: $white;
-  padding: 20px;
+  padding: 2.5rem;
   border-radius: $border-radius;
+  box-shadow: $box-shadow;
+}
+
+.detail-meta {
+  color: #777;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.detail-image {
+  height: 250px;
+  background: linear-gradient(45deg, $primary-color, $secondary-color);
+  border-radius: $border-radius;
+  margin-bottom: 2rem;
+}
+
+.detail-price {
+  font-size: 1.2rem;
+  margin: 1rem 0;
+}
+
+.detail-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+// Details button for cards
+.btn-details {
+  color: $secondary-color;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 15px;
+  
+  &:hover {
+    text-decoration: underline;
+  }
 }

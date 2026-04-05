@@ -9,22 +9,28 @@
 </section>
 
 <section class="featured">
-    <h3>Popular Courses</h3>
+    <h3>Courses</h3>
     <div class="card-grid">
-        <% if (popularCourses && popularCourses.length) { %>
-            <% popularCourses.forEach(course => { %>
+        <% if (courses && courses.length > 0) { %>
+            <% courses.forEach(course => { %>
                 <div class="course-card">
+                    <div class="card-img placeholder-img"></div>
                     <div class="card-info">
                         <h4><%= course.title %></h4>
-                        <p><%= course.description.substring(0, 60) %>...</p>
+                        <p><%= course.description ? course.description.substring(0, 60) : 'No description' %>...</p>
                         <p><strong>Instructor:</strong> <%= course.instructor %></p>
-                        <p><strong>$<%= course.price %></strong></p>
-                        <a href="/courses/<%= course.id %>" class="btn-small">View Course</a>
+                        <p><strong>Price:</strong> $<%= course.price %></p>
+                        <a href="/courses/<%= course.id %>" class="btn-details">View Details →</a>
                     </div>
                 </div>
             <% }) %>
         <% } else { %>
-            <p>No popular courses available at the moment.</p>
+            <div class="course-card">
+                <div class="card-info">
+                    <h4>No courses found</h4>
+                    <p>Add courses to the database.</p>
+                </div>
+            </div>
         <% } %>
     </div>
 </section>

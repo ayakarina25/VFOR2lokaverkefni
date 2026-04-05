@@ -1,14 +1,22 @@
 <%- include('partials/header', { title: course.title }) %>
 
-<div class="course-detail">
-    <h2><%= course.title %></h2>
-    <p><strong>Instructor:</strong> <%= course.instructor %></p>
-    <p><strong>Duration:</strong> <%= course.time_hours %> hours</p>
-    <p><strong>Price:</strong> $<%= course.price %></p>
-    <p><strong>Description:</strong></p>
-    <p><%= course.description %></p>
-    <a href="#" class="btn-primary">Enroll Now</a>
-    <a href="/courses" class="btn-secondary">Back to Courses</a>
-</div>
+<section class="featured">
+    <div class="detail-container">
+        <h2><%= course.title %></h2>
+        <p class="detail-meta"><strong>Instructor:</strong> <%= course.instructor %></p>
+        <p class="detail-meta"><strong>Duration:</strong> <%= course.time_hours %> hours</p>
+        
+        <div class="detail-image"></div>
+        
+        <p class="detail-price"><strong>Price:</strong> $<%= course.price %></p>
+        <p><strong>Description:</strong></p>
+        <p><%= course.description %></p>
+        
+        <div class="detail-buttons">
+            <a href="/courses" class="btn-secondary">Back to Courses</a>
+            <a href="#" class="btn-primary">Enroll Now</a>
+        </div>
+    </div>
+</section>
 
 <%- include('partials/footer') %>
