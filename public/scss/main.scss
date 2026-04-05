@@ -1,46 +1,337 @@
-// Detail page container
-.detail-container {
-  max-width: 800px;
-  margin: 0 auto;
-  background: $white;
-  padding: 2.5rem;
-  border-radius: $border-radius;
-  box-shadow: $box-shadow;
+@import 'variables';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.detail-meta {
-  color: #777;
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
+body {
+  font-family: $body-font;
+  background-color: $light-bg;
+  color: $dark;
+  line-height: 1.6;
+  overflow-x: hidden;
 }
 
-.detail-image {
-  height: 250px;
-  background: linear-gradient(45deg, $primary-color, $secondary-color);
-  border-radius: $border-radius;
-  margin-bottom: 2rem;
+// Typography
+h1, h2, h3, h4, .logo {
+  font-family: $heading-font;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
-.detail-price {
-  font-size: 1.2rem;
-  margin: 1rem 0;
-}
-
-.detail-buttons {
+// Header
+.main-header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: $shadow-sm;
+  padding: $spacing-sm $spacing-md;
   display: flex;
-  gap: 1rem;
-  margin-top: 2rem;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  .logo h1 {
+    font-size: 1.8rem;
+    background: $hero-gradient;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .main-nav ul {
+    display: flex;
+    gap: $spacing-md;
+    list-style: none;
+
+    a {
+      text-decoration: none;
+      font-weight: 600;
+      color: $primary-dark;
+      transition: color 0.2s;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0%;
+        height: 2px;
+        background: $btn-gradient;
+        transition: width 0.3s;
+      }
+
+      &:hover {
+        color: $secondary;
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+  }
 }
 
-// Details button for cards
-.btn-details {
-  color: $secondary-color;
-  font-weight: 600;
-  text-decoration: none;
+// Hero Section
+.hero-section {
+  background: $hero-gradient;
+  color: $white;
+  text-align: center;
+  padding: $spacing-xl $spacing-md;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 1%, transparent 1%);
+    background-size: 50px 50px;
+    animation: moveDots 20s linear infinite;
+    opacity: 0.4;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    h2 {
+      font-size: 3.5rem;
+      margin-bottom: $spacing-sm;
+      animation: fadeInUp 0.8s ease;
+    }
+    p {
+      font-size: 1.2rem;
+      margin-bottom: $spacing-md;
+      opacity: 0.9;
+    }
+  }
+}
+
+@keyframes moveDots {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(100px, 100px); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.btn-primary {
   display: inline-block;
-  margin-top: 15px;
-  
+  background: $btn-gradient;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $radius-xl;
+  color: $white;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: $shadow-sm;
+  transition: transform 0.2s, box-shadow 0.2s;
+
   &:hover {
-    text-decoration: underline;
+    transform: translateY(-3px);
+    box-shadow: $shadow-md;
+  }
+}
+
+// Card Grid
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: $spacing-md;
+  padding: $spacing-md;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.course-card {
+  background: $card-gradient;
+  border-radius: $radius-md;
+  overflow: hidden;
+  box-shadow: $shadow-sm;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: $shadow-hover;
+    .course-img {
+      transform: scale(1.05);
+    }
+    .card-info h4 {
+      color: $secondary;
+    }
+  }
+
+  .course-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .card-info {
+    padding: $spacing-md;
+
+    h4 {
+      font-size: 1.4rem;
+      margin-bottom: $spacing-xs;
+      transition: color 0.2s;
+    }
+
+    p {
+      color: $gray;
+      font-size: 0.9rem;
+      margin-bottom: $spacing-xs;
+    }
+
+    strong {
+      color: $dark;
+    }
+
+    .btn-details {
+      display: inline-block;
+      margin-top: $spacing-sm;
+      color: $secondary;
+      font-weight: 600;
+      text-decoration: none;
+      position: relative;
+
+      &::after {
+        content: '→';
+        margin-left: 5px;
+        transition: transform 0.2s;
+        display: inline-block;
+      }
+
+      &:hover::after {
+        transform: translateX(5px);
+      }
+    }
+  }
+}
+
+// Course Detail Page
+.detail-container {
+  max-width: 1000px;
+  margin: $spacing-md auto;
+  background: $white;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  box-shadow: $shadow-md;
+
+  .detail-img {
+    width: 100%;
+    max-height: 450px;
+    object-fit: cover;
+  }
+
+  > div {
+    padding: $spacing-lg;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: $spacing-sm;
+    background: $hero-gradient;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .detail-meta {
+    font-size: 1rem;
+    color: $gray;
+    margin-bottom: $spacing-xs;
+    display: flex;
+    gap: $spacing-md;
+    flex-wrap: wrap;
+
+    strong {
+      color: $dark;
+    }
+  }
+
+  .detail-price {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: $secondary;
+    margin: $spacing-md 0;
+  }
+
+  .detail-buttons {
+    display: flex;
+    gap: $spacing-sm;
+    margin-top: $spacing-md;
+    flex-wrap: wrap;
+  }
+}
+
+.btn-secondary {
+  background: $light-bg;
+  color: $primary-dark;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $radius-xl;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s;
+
+  &:hover {
+    background: darken($light-bg, 5%);
+    transform: translateY(-2px);
+  }
+}
+
+// Footer
+.main-footer {
+  text-align: center;
+  padding: $spacing-lg;
+  background: $white;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  color: $gray;
+  margin-top: $spacing-xl;
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .main-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-section .hero-content h2 {
+    font-size: 2rem;
+  }
+
+  .card-grid {
+    padding: $spacing-sm;
+    gap: $spacing-sm;
+  }
+
+  .detail-container > div {
+    padding: $spacing-md;
+  }
+
+  .detail-container h2 {
+    font-size: 1.8rem;
+  }
+
+  .detail-buttons {
+    flex-direction: column;
+    align-items: stretch;
   }
 }

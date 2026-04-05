@@ -11,12 +11,12 @@ CREATE TABLE IF NOT EXISTS courses (
 
 TRUNCATE TABLE courses RESTART IDENTITY;
 
-INSERT INTO courses (title, description, time_hours, instructor, price) VALUES
-('Web Development Bootcamp', 'Learn HTML, CSS, JavaScript, and React', 40, 'John Smith', 99.99),
-('Node.js Masterclass', 'Backend development with Node.js and Express', 25, 'Sarah Johnson', 79.99),
-('Database Design', 'PostgreSQL, MongoDB and database modeling', 20, 'Mike Brown', 89.99),
-('Python for Beginners', 'Learn Python programming from scratch', 30, 'Emily Davis', 69.99),
-('UI/UX Design Fundamentals', 'Design beautiful user interfaces', 15, 'Lisa Anderson', 59.99);
+INSERT INTO courses (title, description, time_hours, instructor, price, image_url) VALUES
+('Web Development Bootcamp', 'Learn HTML, CSS, JavaScript, and React', 40, 'John Smith', 99.99, 'https://picsum.photos/id/0/300/200'),
+('Node.js Masterclass', 'Backend development with Node.js and Express', 25, 'Sarah Johnson', 79.99, 'https://picsum.photos/id/1/300/200'),
+('Database Design', 'PostgreSQL, MongoDB and database modeling', 20, 'Mike Brown', 89.99, 'https://picsum.photos/id/2/300/200'),
+('Python for Beginners', 'Learn Python programming from scratch', 30, 'Emily Davis', 69.99, 'https://picsum.photos/id/3/300/200'),
+('UI/UX Design Fundamentals', 'Design beautiful user interfaces', 15, 'Lisa Anderson', 59.99, 'https://picsum.photos/id/4/300/200');
 
 -- Users & enrollments tables (optional)
 CREATE TABLE IF NOT EXISTS users (
