@@ -1,3 +1,4 @@
+// Handles database queries (business logic layer)
 const db = require('../lib/db');
 
 const getAllCourses = async () => {
@@ -20,5 +21,5 @@ const getCourseById = async (id) => {
 
 module.exports = {
     getAllCourses,
-    getCourseById  // Don't forget to export the new function!
+    getCourseById  
 };

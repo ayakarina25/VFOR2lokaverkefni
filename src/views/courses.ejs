@@ -1,3 +1,4 @@
+<!-- Displays all courses in a card grid layout -->
 <%- include('partials/header', { title: 'All Courses' }) %>
 
 <h2>All Courses</h2>
@@ -12,7 +13,7 @@
                     <p><strong>Instructor:</strong> <%= course.instructor %></p>
                     <p><strong>Duration:</strong> <%= course.time_hours %> hours</p>
                     <p><strong>Price:</strong> $<%= course.price %></p>
-                    <!-- NEW: View Details link -->
+                    <!-- View Details link -->
                     <a href="/courses/<%= course.id %>" style="color: #3498db; font-weight: 600; text-decoration: none; display: inline-block; margin-top: 15px;">
                         View Details →
                     </a>

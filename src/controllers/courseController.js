@@ -1,3 +1,4 @@
+// Handles HTTP requests: fetches data via service and renders views
 const courseService = require('../services/courseService');
 
 const getHomePage = async (req, res) => {
@@ -31,7 +32,6 @@ const getCourseDetail = async (req, res) => {
     try {
         const id = req.params.id; // Get ID from the URL
         const course = await courseService.getCourseById(id);
-
         // If user enters an ID that doesn't exist
         if (!course) {
             return res.status(404).render('404', { title: 'Course Not Found' });

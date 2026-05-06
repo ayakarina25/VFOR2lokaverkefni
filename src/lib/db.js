@@ -1,3 +1,4 @@
+// PostgreSQL connection pool using DATABASE_URL from .env
 const { Pool } = require('pg');
 
 const pool = new Pool({
